@@ -28,8 +28,14 @@ public class Formation
     public int GetNombreDePresents()
     {
         // A compléter ici
+        int nbPresent = 0;
+        for (Participant unParticipant:lesParticipants){
+            if (unParticipant.isEstPresent()){
+                nbPresent = nbPresent+1;
+            }
+        }
 
-        return 0;
+        return nbPresent;
     }
 
     // Cette méthode permet de calculer le montant total
@@ -39,8 +45,15 @@ public class Formation
     public double CalculerFraisRemboursementKilometriques()
     {
         // A compléter ici
+        double totalkm = 0;
+        for (Participant unParticipant:lesParticipants){
+            if (unParticipant.isEstPresent()){
+                totalkm = unParticipant.getNbKm() + totalkm;
+            }
+        }
+        double total = totalkm * 1.89;
 
-        return 0;
+        return total;
     }
 
     // Cette méthode permet de calculer le taux de présence
@@ -48,7 +61,14 @@ public class Formation
     public double TauxDePresence()
     {
         // A compléter ici
-        return 0;
+        int nbPresent = 0;
+        for (Participant unParticipant:lesParticipants){
+            if (unParticipant.isEstPresent()){
+                nbPresent = nbPresent + 1 ;
+            }
+        }
+        double taux = 100 * nbPresent / lesParticipants.size();
+        return taux;
     }
 
     // Cette méthode permet de calculer le bénéfice de la formation.
